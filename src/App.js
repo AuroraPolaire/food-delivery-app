@@ -13,9 +13,9 @@ const alert = "Coming soon... ";
 
 function App() {
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchProducts());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   return (
     <Routes>

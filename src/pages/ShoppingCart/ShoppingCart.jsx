@@ -12,7 +12,7 @@ const ShoppingCart = () => {
 
   const cartItems = useSelector(selectCart);
   const total = useSelector(selectTotal);
-
+  // eslint-disable-next-line
   const [cart, setCart] = useState(cartItems);
 
   useEffect(() => {
