@@ -1,13 +1,34 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { GlobalContainer } from "../../layout/GlobalContainer";
+import { StyledHeader, StyledLink } from "./Navigation.styled";
 
 const Navigation = () => {
   return (
     <>
-      <div>
-        <NavLink to="/shop">Shop</NavLink>
-        <NavLink to="/shoppingCart">Shopping Cart</NavLink>
-      </div>
+      <StyledHeader>
+        <GlobalContainer>
+          <StyledLink
+            to="/shop"
+            style={({ isActive }) =>
+              isActive
+                ? { borderBottom: "1px solid black", fontWeight: "bold" }
+                : {}
+            }
+          >
+            Shop
+          </StyledLink>
+          <StyledLink
+            to="/shoppingCart"
+            style={({ isActive }) =>
+              isActive
+                ? { borderBottom: "1px solid black", fontWeight: "bold" }
+                : {}
+            }
+          >
+            Shopping Cart
+          </StyledLink>
+        </GlobalContainer>
+      </StyledHeader>
     </>
   );
 };

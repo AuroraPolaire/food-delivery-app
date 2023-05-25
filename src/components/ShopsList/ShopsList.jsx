@@ -1,13 +1,22 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { selectShops } from "../../redux/productsSelector";
+import { shops } from "../../utils/shops";
+import { ShopButton } from "./ShopsList.styled";
 
 const ShopsList = () => {
-  const shopsList = useSelector(selectShops);
   return (
     <>
-      {shopsList.map((shop) => {
-        return <button key={shop}>{shop}</button>;
+      {shops.map(({ href, name }) => {
+        return (
+          <ShopButton
+            to={href}
+            key={name}
+            style={({ isActive }) =>
+              isActive ? { fontWeight: "bold", backgroundColor: "#219ebc" } : {}
+            }
+          >
+            {name}
+          </ShopButton>
+        );
       })}
     </>
   );

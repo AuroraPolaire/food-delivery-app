@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCart } from "../../redux/productsSelector";
-import { calculateTotal, changeAmount } from "../../redux/productsSlice";
+import { changeAmount } from "../../redux/productsSlice";
 
 const CartItemList = ({ formik }) => {
   const cartItems = useSelector(selectCart);

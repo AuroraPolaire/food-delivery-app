@@ -5,6 +5,7 @@ import { addProduct, removeProduct } from "../../redux/productsSlice";
 import { Tooltip } from "@chakra-ui/react";
 import { includesMeal } from "../../utils/checkMeal";
 import { faker } from "@faker-js/faker";
+import { StyledCard } from "./ProductCard.styled";
 
 const ProductCard = ({ product }) => {
   const cartItems = useSelector(selectCart);
@@ -15,10 +16,13 @@ const ProductCard = ({ product }) => {
 
   const { strMealThumb, strMeal, idMeal } = product;
   return (
-    <div>
+    <StyledCard>
       <img src={strMealThumb} alt={strMeal} />
-      <p>{strMeal}</p>
-      <p>{price}</p>
+      <p>
+        <span>{strMeal}</span>
+        <span>{price} &euro;</span>
+      </p>
+
       <Tooltip
         label="You can add or remove item"
         fontSize="md"
@@ -42,7 +46,7 @@ const ProductCard = ({ product }) => {
           </button>
         )}
       </Tooltip>
-    </div>
+    </StyledCard>
   );
 };
 

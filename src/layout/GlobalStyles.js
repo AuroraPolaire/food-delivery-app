@@ -5,9 +5,12 @@ export const GlobalStyles = createGlobalStyle`
 ${normalize}
 
 :root {
-  --accent-color: #8baa36;
-  --accent-color-gray: #1e1f28;
-  --font-color: #22252a;
+  --accent-color-yellow: #ffb703;
+  --accent-color-orange: #fb8500;
+  --font-color: #023047;
+
+  --button-color-blue: #219ebc;
+  --button-color-skyblue: #8ecae6;
   
   --transition-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
@@ -19,6 +22,7 @@ ${normalize}
 
 body {
   font-family: 'Poppins', sans-serif;
+  color: var(--font-color);
  
 }
 
@@ -27,6 +31,8 @@ li {
 }
 a {
   text-decoration: none;
+  color: var(--font-color);
+  
 }
 
 h1,

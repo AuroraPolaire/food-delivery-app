@@ -1,13 +1,18 @@
 import React from "react";
-import ProductsList from "../../components/ProductsList/ProductsList";
 import ShopsList from "../../components/ShopsList/ShopsList";
+import { ShopPageContainer } from "./Shop.styled";
+import { Outlet } from "react-router-dom";
 
 const Shop = () => {
   return (
-    <>
-      <ShopsList />
-      <ProductsList />
-    </>
+    <ShopPageContainer>
+      <div className="shopsList">
+        <ShopsList />
+      </div>
+      <div className="productsList">
+        <Outlet />
+      </div>
+    </ShopPageContainer>
   );
 };
 

@@ -6,7 +6,6 @@ import { fetchProducts } from "./productsOperations";
 const productsSlice = createSlice({
   name: "delivery",
   initialState: {
-    shops: ["Egersund", "Food Market", "Domino", "Chelentano", "Mafia"],
     products: [],
     cart: [],
     total: 0,
