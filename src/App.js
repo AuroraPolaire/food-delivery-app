@@ -9,21 +9,39 @@ import Shop from "./pages/Shop/Shop";
 import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
 import { fetchProducts } from "./redux/productsOperations";
 
+const alert = "Coming soon... ";
+
 function App() {
   const dispatch = useDispatch();
   // useEffect(() => {
   //   dispatch(fetchProducts());
-  // });
+  // }, [dispatch]);
 
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route path="/shop" element={<Shop />}>
+          <Route
+            index
+            element={<div className="not-available"> Choose a shop</div>}
+          />
           <Route path="egersund" element={<ProductsList />} />
-          <Route path="foodmarket" element={<div>shop</div>} />
-          <Route path="domino" element={<div>shop</div>} />
-          <Route path="chelentano" element={<div>shop</div>} />
-          <Route path="mafia" element={<div>shop</div>} />
+          <Route
+            path="foodmarket"
+            element={<div className="not-available">{alert}</div>}
+          />
+          <Route
+            path="domino"
+            element={<div className="not-available">{alert}</div>}
+          />
+          <Route
+            path="chelentano"
+            element={<div className="not-available">{alert}</div>}
+          />
+          <Route
+            path="mafia"
+            element={<div className="not-available">{alert}</div>}
+          />
         </Route>
         <Route path="/shoppingCart" element={<ShoppingCart />} />
         <Route path="*" element={<Navigate to="/" />} />

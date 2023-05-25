@@ -32,6 +32,7 @@ li {
 a {
   text-decoration: none;
   color: var(--font-color);
+  cursor: pointer;
   
 }
 
@@ -60,5 +61,9 @@ html {
 
 div {
   box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
 }
 `;

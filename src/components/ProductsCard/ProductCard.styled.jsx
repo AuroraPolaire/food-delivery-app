@@ -1,5 +1,10 @@
 import styled from "styled-components";
+
 export const StyledCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 10px 20px;
   border-radius: 10px;
   border: 1px solid black;
@@ -10,19 +15,32 @@ export const StyledCard = styled.div`
   }
 
   & img {
-    width: 350px;
-    height: 200px;
+    width: 180px;
+    height: 100px;
     object-fit: cover;
     border-radius: 10px;
+
+    @media screen and (min-width: 768px) {
+      width: 180px;
+      height: 100px;
+    }
+    @media screen and (min-width: 1024px) {
+      width: 270px;
+      height: 160px;
+    }
+    @media screen and (min-width: 1240px) {
+      width: 350px;
+      height: 200px;
+    }
   }
 
-  & p {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+  & div {
+    margin-top: 10px;
   }
 
-  & span:last-child {
+  & div:last-child {
+    text-align: center;
+    padding-top: 10px;
     font-weight: bold;
   }
 
@@ -31,5 +49,10 @@ export const StyledCard = styled.div`
     padding: 8px 10px;
     border-radius: 5px;
     border: 0.5px solid black;
+    transition: background-color var(--transition-dur-and-func);
+
+    &:hover {
+      background-color: var(--accent-color-yellow);
+    }
   }
 `;

@@ -8,7 +8,7 @@ export const ShopPageContainer = styled.div`
     flex: 1 1 0;
     margin: 20px 0;
     padding: 20px;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     border: 1px solid black;
@@ -17,14 +17,15 @@ export const ShopPageContainer = styled.div`
 
   & .productsList {
     display: flex;
-    gap: 30px;
-    justify-content: space-around;
+    gap: 20px;
+    justify-content: space-evenly;
     flex: 3 1 0;
     flex-wrap: wrap;
-    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
     margin: 20px 0;
     padding: 20px;
-    height: 100vh;
+    height: 80vh;
     border: 1px solid black;
     border-radius: 10px;
   }

@@ -18,18 +18,20 @@ const ProductCard = ({ product }) => {
   return (
     <StyledCard>
       <img src={strMealThumb} alt={strMeal} />
-      <p>
-        <span>{strMeal}</span>
-        <span>{price} &euro;</span>
-      </p>
+      <div>
+        <div>{strMeal}</div>
+        <div>{price} &euro;</div>
+      </div>
 
       <Tooltip
         label="You can add or remove item"
         fontSize="md"
+        bg="white"
         aria-label="A tooltip"
       >
         {includesMeal(idMeal, cartItems) ? (
           <button
+            style={{ backgroundColor: "var(--accent-color-orange)" }}
             type="button"
             onClick={(e) => dispatch(removeProduct(idMeal))}
           >

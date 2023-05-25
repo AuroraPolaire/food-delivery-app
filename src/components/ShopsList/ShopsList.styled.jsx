@@ -9,4 +9,9 @@ export const ShopButton = styled(NavLink)`
   border: 1px solid black;
   border-radius: 10px;
   background-color: var(--button-color-skyblue);
+  transition: background-color var(--transition-dur-and-func);
+
+  &:hover {
+    background-color: var(--accent-color-yellow);
+  }
 `;

@@ -11,7 +11,7 @@ const Navigation = () => {
             to="/shop"
             style={({ isActive }) =>
               isActive
-                ? { borderBottom: "1px solid black", fontWeight: "bold" }
+                ? { borderBottom: "2px solid black", fontWeight: "bold" }
                 : {}
             }
           >
@@ -21,7 +21,7 @@ const Navigation = () => {
             to="/shoppingCart"
             style={({ isActive }) =>
               isActive
-                ? { borderBottom: "1px solid black", fontWeight: "bold" }
+                ? { borderBottom: "2px solid black", fontWeight: "bold" }
                 : {}
             }
           >

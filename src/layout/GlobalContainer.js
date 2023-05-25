@@ -22,4 +22,9 @@ export const GlobalContainer = styled.div`
     width: 1240px;
     padding: 0px 16px;
   }
+
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+    padding: 0px 16px;
+  }
 `;
