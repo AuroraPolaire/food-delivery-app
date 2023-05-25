@@ -29,13 +29,11 @@ const ShoppingCart = () => {
           phone: "",
           address: "",
         }}
-        onSubmit={(values, { resetForm }) => {
+        onSubmit={(values) => {
           let formData = new FormData();
           formData.append("total", total);
           formData.append("order", JSON.stringify(cartItems));
-          resetForm({
-            values: "",
-          });
+          console.log(values, total, cartItems);
 
           // Object.keys(values).forEach((key) => {
           //   if (key === "order") {
