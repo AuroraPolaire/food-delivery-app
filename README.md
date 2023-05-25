@@ -12,8 +12,8 @@ https://aurorapolaire.github.io/food-delivery-app/shop
 
 ## Screenshots
 
-![Home Page](https://i.ibb.co/0qyxHY6/tweetNet.png)
-![Tweet Page](https://i.ibb.co/HPTMQcg/tweet-Net1.png)
+![Shops page](https://i.ibb.co/crCtqvz/food-delivery.png)
+![Tweet Page](https://i.ibb.co/qBsfSVP/food-delivery2.jpg)
 
 ## Features
 
@@ -22,7 +22,7 @@ https://aurorapolaire.github.io/food-delivery-app/shop
 3. Redux Toolkit.
 4. Redux-persist.
 5. Axios.
-6. React-select.
-7. React-loader-spinner.
-8. React-icons.
-9. Styled-components.
+6. React-loader-spinner.
+7. Chakra.
+8. Styled-components.
+9. Formik
