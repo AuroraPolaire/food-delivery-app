@@ -36,6 +36,7 @@ const ShoppingCart = () => {
           let formData = new FormData();
           Object.keys(values).forEach((key) => {
             formData.append(key, values[key]);
+            console.log(key, values[key]);
           });
 
           formData.append("total", total);

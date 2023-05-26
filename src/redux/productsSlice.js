@@ -55,7 +55,7 @@ const productsSlice = createSlice({
       })
       .addCase(sendUserOrder.fulfilled, (state, { payload }) => {
         state.loading = false;
-        state.order = payload;
+        state.order.push(payload);
       })
       .addCase(sendUserOrder.rejected, (state) => {
         state.error = true;

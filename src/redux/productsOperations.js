@@ -14,6 +14,7 @@ export const fetchProducts = createAsyncThunk("get", async (_, thunkAPI) => {
 export const sendUserOrder = createAsyncThunk(
   "post",
   async (data, thunkAPI) => {
+    console.log(data);
     try {
       const order = await sendOrder();
       return order;
