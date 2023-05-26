@@ -1,7 +1,7 @@
 NB!
 
 - Rapid API (TheMealDB) is used to fetch products.
-- Sent data is shown in console.
+- Sent data is stored in mockapi.io app and is shown in console.
 
 # Test App 'Food Delivery'
 

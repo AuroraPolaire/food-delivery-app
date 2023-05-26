@@ -7,6 +7,7 @@ import { selectCart, selectTotal } from "../../redux/productsSelector";
 import { calculateTotal, emptyCart } from "../../redux/productsSlice";
 import { StyledCartBox, StyledTotal } from "./ShoppingCart.styled";
 import { validationSchema } from "../../utils/validation";
+import { sendUserOrder } from "../../redux/productsOperations";
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();
@@ -39,6 +40,8 @@ const ShoppingCart = () => {
 
           formData.append("total", total);
           formData.append("order", JSON.stringify(cartItems));
+
+          dispatch(sendUserOrder(formData));
           console.log(values, total, cartItems);
           dispatch(emptyCart());
           formik.resetForm();

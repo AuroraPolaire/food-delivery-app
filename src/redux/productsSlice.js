@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { fetchProducts } from "./productsOperations";
+import { fetchProducts, sendUserOrder } from "./productsOperations";
 
 const productsSlice = createSlice({
   name: "delivery",
@@ -9,6 +9,7 @@ const productsSlice = createSlice({
     products: [],
     cart: [],
     total: 0,
+    order: [],
     loading: false,
     error: false,
   },
@@ -46,6 +47,17 @@ const productsSlice = createSlice({
         state.products = payload;
       })
       .addCase(fetchProducts.rejected, (state) => {
+        state.error = true;
+      })
+      .addCase(sendUserOrder.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+      })
+      .addCase(sendUserOrder.fulfilled, (state, { payload }) => {
+        state.loading = false;
+        state.order = payload;
+      })
+      .addCase(sendUserOrder.rejected, (state) => {
         state.error = true;
       }),
 });
