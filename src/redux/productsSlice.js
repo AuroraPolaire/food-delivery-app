@@ -31,6 +31,9 @@ const productsSlice = createSlice({
         return acc + item.amount * item.price;
       }, 0);
     },
+    emptyCart(state) {
+      state.cart = [];
+    },
   },
   extraReducers: (builder) =>
     builder
@@ -53,8 +56,13 @@ const persistConfig = {
   whitelist: ["cart", "products"],
 };
 
-export const { addProduct, removeProduct, changeAmount, calculateTotal } =
-  productsSlice.actions;
+export const {
+  addProduct,
+  removeProduct,
+  changeAmount,
+  calculateTotal,
+  emptyCart,
+} = productsSlice.actions;
 export const productsReducer = persistReducer(
   persistConfig,
   productsSlice.reducer

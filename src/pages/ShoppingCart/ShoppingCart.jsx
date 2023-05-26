@@ -4,7 +4,7 @@ import UserInfo from "../../components/UserInfo/UserInfo";
 import { Formik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCart, selectTotal } from "../../redux/productsSelector";
-import { calculateTotal } from "../../redux/productsSlice";
+import { calculateTotal, emptyCart } from "../../redux/productsSlice";
 import { StyledCartBox, StyledTotal } from "./ShoppingCart.styled";
 import { validationSchema } from "../../utils/validation";
 
@@ -31,7 +31,7 @@ const ShoppingCart = () => {
           address: "",
         }}
         validationSchema={validationSchema}
-        onSubmit={(values) => {
+        onSubmit={(values, formik) => {
           let formData = new FormData();
           Object.keys(values).forEach((key) => {
             formData.append(key, values[key]);
@@ -40,6 +40,8 @@ const ShoppingCart = () => {
           formData.append("total", total);
           formData.append("order", JSON.stringify(cartItems));
           console.log(values, total, cartItems);
+          dispatch(emptyCart());
+          formik.resetForm();
         }}
       >
         {(formik) => (
@@ -49,6 +51,11 @@ const ShoppingCart = () => {
                 <UserInfo formik={formik} />
               </div>
               <div className="cart-box">
+                {cartItems.length === 0 ? (
+                  <div className="empty">The cart is empty.</div>
+                ) : (
+                  <CartItemList formik={formik} type="number" label="amount" />
+                )}
                 <CartItemList formik={formik} type="number" label="amount" />
               </div>
             </StyledCartBox>

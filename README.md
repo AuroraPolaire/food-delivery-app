@@ -1,4 +1,4 @@
-NB
+NB!
 
 - Rapid API (TheMealDB) is used to fetch products.
 - Sent data is shown in console.

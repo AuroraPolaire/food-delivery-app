@@ -5,3 +5,10 @@
   font-size: 25px;
   white-space: nowrap;
 }
+
+.empty {
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+  white-space: nowrap;
+}
