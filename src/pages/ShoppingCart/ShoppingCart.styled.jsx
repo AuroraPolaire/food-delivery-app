@@ -21,7 +21,7 @@ export const StyledCartBox = styled.div`
     border: 1px solid black;
     border-radius: 10px;
 
-    & div {
+    & .form-container {
       position: relative;
       display: flex;
       flex-direction: column;

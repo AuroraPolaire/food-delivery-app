@@ -4,7 +4,7 @@ import { StyledInput, StyledLabel, Validation } from "./UserInfo.styled";
 const UserInfo = ({ formik }) => {
   return (
     <>
-      <div style={{ position: "relative" }}>
+      <div className="form-container">
         <StyledLabel htmlFor="name"> Name:</StyledLabel>
         {formik.errors.name && formik.touched.name ? (
           <Validation>{formik.errors.name}</Validation>
@@ -16,7 +16,7 @@ const UserInfo = ({ formik }) => {
           onChange={formik.handleChange}
         />
       </div>
-      <div style={{ position: "relative" }}>
+      <div className="form-container">
         <StyledLabel htmlFor="email">Email:</StyledLabel>
         {formik.errors.email && formik.touched.email ? (
           <Validation>{formik.errors.email}</Validation>
@@ -28,7 +28,7 @@ const UserInfo = ({ formik }) => {
           onChange={formik.handleChange}
         />
       </div>
-      <div style={{ position: "relative" }}>
+      <div className="form-container">
         <StyledLabel htmlFor="phone">Phone:</StyledLabel>
         {formik.errors.phone && formik.touched.phone ? (
           <Validation>{formik.errors.phone}</Validation>
@@ -40,7 +40,7 @@ const UserInfo = ({ formik }) => {
           onChange={formik.handleChange}
         />
       </div>
-      <div style={{ position: "relative" }}>
+      <div className="form-container">
         <StyledLabel htmlFor="address">Address:</StyledLabel>
         {formik.errors.address && formik.touched.address ? (
           <Validation>{formik.errors.address}</Validation>
