@@ -1,9 +1,14 @@
+NB
+
+- Rapid API (TheMealDB) is used to fetch products.
+- Sent data is shown in console.
+
 # Test App 'Food Delivery'
 
 - App has routing : Shops page and shopping cart page.
 - You can choose a shop to order food.
-  -You can add items to your cart, edit the amount and see the total sum.
-  You can leave your order.
+- You can add items to your cart, edit the amount and see the total sum.
+- You can leave your order.
 
 ## Demo
 
