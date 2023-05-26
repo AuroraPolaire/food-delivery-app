@@ -20,7 +20,6 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Shop />} />
         <Route path="/shop" element={<Shop />}>
           <Route
             index
