@@ -1,11 +1,14 @@
 import React from "react";
-import { StyledInput, StyledLabel } from "./UserInfo.styled";
+import { StyledInput, StyledLabel, Validation } from "./UserInfo.styled";
 
 const UserInfo = ({ formik }) => {
   return (
     <>
-      <div>
+      <div style={{ position: "relative" }}>
         <StyledLabel htmlFor="name"> Name:</StyledLabel>
+        {formik.errors.name && formik.touched.name ? (
+          <Validation>{formik.errors.name}</Validation>
+        ) : null}
         <StyledInput
           id="name"
           name="name"
@@ -13,8 +16,11 @@ const UserInfo = ({ formik }) => {
           onChange={formik.handleChange}
         />
       </div>
-      <div>
+      <div style={{ position: "relative" }}>
         <StyledLabel htmlFor="email">Email:</StyledLabel>
+        {formik.errors.email && formik.touched.email ? (
+          <Validation>{formik.errors.email}</Validation>
+        ) : null}
         <StyledInput
           id="email"
           name="email"
@@ -22,8 +28,11 @@ const UserInfo = ({ formik }) => {
           onChange={formik.handleChange}
         />
       </div>
-      <div>
+      <div style={{ position: "relative" }}>
         <StyledLabel htmlFor="phone">Phone:</StyledLabel>
+        {formik.errors.phone && formik.touched.phone ? (
+          <Validation>{formik.errors.phone}</Validation>
+        ) : null}
         <StyledInput
           id="phone"
           name="phone"
@@ -31,8 +40,11 @@ const UserInfo = ({ formik }) => {
           onChange={formik.handleChange}
         />
       </div>
-      <div>
+      <div style={{ position: "relative" }}>
         <StyledLabel htmlFor="address">Address:</StyledLabel>
+        {formik.errors.address && formik.touched.address ? (
+          <Validation>{formik.errors.address}</Validation>
+        ) : null}
         <StyledInput
           id="address"
           name="address"

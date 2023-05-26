@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectCart, selectTotal } from "../../redux/productsSelector";
 import { calculateTotal } from "../../redux/productsSlice";
 import { StyledCartBox, StyledTotal } from "./ShoppingCart.styled";
+import { validationSchema } from "../../utils/validation";
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();
@@ -29,19 +30,16 @@ const ShoppingCart = () => {
           phone: "",
           address: "",
         }}
+        validationSchema={validationSchema}
         onSubmit={(values) => {
           let formData = new FormData();
+          Object.keys(values).forEach((key) => {
+            formData.append(key, values[key]);
+          });
+
           formData.append("total", total);
           formData.append("order", JSON.stringify(cartItems));
           console.log(values, total, cartItems);
-
-          // Object.keys(values).forEach((key) => {
-          //   if (key === "order") {
-          //     formData.append(key, JSON.stringify(values[key]));
-          //     return;
-          //   }
-          //   formData.append(key, values[key]);
-          // });
         }}
       >
         {(formik) => (
