@@ -60,7 +60,6 @@ const ShoppingCart = () => {
                 ) : (
                   <CartItemList formik={formik} type="number" label="amount" />
                 )}
-                <CartItemList formik={formik} type="number" label="amount" />
               </div>
             </StyledCartBox>
             <StyledTotal>
