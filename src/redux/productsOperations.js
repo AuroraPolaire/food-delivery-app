@@ -1,23 +1,68 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getProducts } from "../services/productsApi";
+import { getChicken } from "../services/chickenApi";
+import { getDessert } from "../services/dessertsApi";
+import { getSeafood } from "../services/seafoodApi";
 import { sendOrder } from "../services/sendOrderApi";
+import { getVegan } from "../services/vegeterianApi";
 
-export const fetchProducts = createAsyncThunk("get", async (_, thunkAPI) => {
-  try {
-    const products = await getProducts();
-    return products;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+export const fetchSeafood = createAsyncThunk(
+  "getSeafood",
+  async (_, thunkAPI) => {
+    try {
+      const seafood = await getSeafood();
+      return seafood;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
-});
+);
 
 export const sendUserOrder = createAsyncThunk(
   "post",
   async (data, thunkAPI) => {
-    console.log(data);
     try {
-      const order = await sendOrder();
+      const order = await sendOrder(data);
       return order;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getDessertsList = createAsyncThunk(
+  "getDesserts",
+  async (_, thunkAPI) => {
+    try {
+      const desserts = await getDessert();
+      return desserts;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getVeganList = createAsyncThunk(
+  "getVegan",
+  async (_, thunkAPI) => {
+    try {
+      const vegan = await getVegan();
+      console.log(vegan);
+
+      return vegan;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getChickenList = createAsyncThunk(
+  "geChicken",
+  async (_, thunkAPI) => {
+    try {
+      const chicken = await getChicken();
+      console.log(chicken);
+
+      return chicken;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

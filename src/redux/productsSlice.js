@@ -1,12 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { fetchProducts, sendUserOrder } from "./productsOperations";
+import {
+  fetchSeafood,
+  getChickenList,
+  getDessertsList,
+  getVeganList,
+  sendUserOrder,
+} from "./productsOperations";
 
 const productsSlice = createSlice({
   name: "delivery",
   initialState: {
-    products: [],
+    seafood: [],
+    desserts: [],
+    vegan: [],
+    chicken: [],
     cart: [],
     total: 0,
     order: [],
@@ -38,20 +47,57 @@ const productsSlice = createSlice({
   },
   extraReducers: (builder) =>
     builder
-      .addCase(fetchProducts.pending, (state) => {
+      .addCase(fetchSeafood.pending, (state) => {
         state.loading = true;
         state.error = false;
       })
-      .addCase(fetchProducts.fulfilled, (state, { payload }) => {
+      .addCase(fetchSeafood.fulfilled, (state, { payload }) => {
+        state.seafood = payload;
         state.loading = false;
-        state.products = payload;
       })
-      .addCase(fetchProducts.rejected, (state) => {
+      .addCase(fetchSeafood.rejected, (state) => {
+        state.loading = false;
         state.error = true;
       })
-      .addCase(sendUserOrder.pending, (state) => {
+      .addCase(getDessertsList.pending, (state) => {
         state.loading = true;
         state.error = false;
+      })
+      .addCase(getDessertsList.fulfilled, (state, { payload }) => {
+        state.desserts = payload;
+        state.loading = false;
+      })
+      .addCase(getDessertsList.rejected, (state) => {
+        state.error = true;
+        state.loading = false;
+      })
+      .addCase(getVeganList.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+      })
+      .addCase(getVeganList.fulfilled, (state, { payload }) => {
+        state.vegan = payload;
+        state.loading = false;
+      })
+      .addCase(getVeganList.rejected, (state) => {
+        state.error = true;
+        state.loading = false;
+      })
+      .addCase(getChickenList.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+      })
+      .addCase(getChickenList.fulfilled, (state, { payload }) => {
+        state.chicken = payload;
+        state.loading = false;
+      })
+      .addCase(getChickenList.rejected, (state) => {
+        state.error = true;
+        state.loading = false;
+      })
+      .addCase(sendUserOrder.pending, (state) => {
+        state.error = false;
+        state.loading = true;
       })
       .addCase(sendUserOrder.fulfilled, (state, { payload }) => {
         state.loading = false;
@@ -59,13 +105,14 @@ const productsSlice = createSlice({
       })
       .addCase(sendUserOrder.rejected, (state) => {
         state.error = true;
+        state.loading = false;
       }),
 });
 
 const persistConfig = {
   key: "cart",
   storage,
-  whitelist: ["cart", "products"],
+  whitelist: ["cart", "seafood", "desserts", "vegan", "chicken"],
 };
 
 export const {

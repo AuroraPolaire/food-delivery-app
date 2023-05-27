@@ -28,7 +28,7 @@ https://aurorapolaire.github.io/food-delivery-app/shop
 3. Redux Toolkit.
 4. Redux-persist.
 5. Axios.
-6. React-loader-spinner.
+6. React-hot-toast
 7. Chakra.
 8. Styled-components.
 9. Formik

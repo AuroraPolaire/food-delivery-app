@@ -1,16 +1,26 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { selectProducts } from "../../redux/productsSelector";
 import ProductCard from "../ProductsCard/ProductCard";
+import { useLocation } from "react-router-dom";
+import { GetPath } from "../../hooks/GetPath";
+import { useSelector } from "react-redux";
+import { selectLoading } from "../../redux/productsSelector";
 
 const ProductsList = () => {
-  const products = useSelector(selectProducts);
+  const location = useLocation();
+
+  const isLoading = useSelector(selectLoading);
+  console.log(isLoading);
+
+  const { food } = GetPath(location.pathname);
+
   return (
     <>
-      {products.length !== 0 &&
-        products.meals.map((product) => {
-          return <ProductCard key={product.idMeal} product={product} />;
-        })}
+      {isLoading
+        ? null
+        : food !== undefined &&
+          food.map((product) => {
+            return <ProductCard key={product.idMeal} product={product} />;
+          })}
     </>
   );
 };

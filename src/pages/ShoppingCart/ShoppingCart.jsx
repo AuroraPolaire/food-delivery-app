@@ -8,6 +8,7 @@ import { calculateTotal, emptyCart } from "../../redux/productsSlice";
 import { StyledCartBox, StyledTotal } from "./ShoppingCart.styled";
 import { validationSchema } from "../../utils/validation";
 import { sendUserOrder } from "../../redux/productsOperations";
+import toast, { Toaster } from "react-hot-toast";
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();
@@ -42,10 +43,14 @@ const ShoppingCart = () => {
           formData.append("total", total);
           formData.append("order", JSON.stringify(cartItems));
 
-          dispatch(sendUserOrder(formData));
+          dispatch(sendUserOrder(values));
           console.log(values, total, cartItems);
           dispatch(emptyCart());
           formik.resetForm();
+          toast.success("Order successfully sent!", {
+            duration: 4000,
+            position: "top-right",
+          });
         }}
       >
         {(formik) => (
@@ -71,6 +76,7 @@ const ShoppingCart = () => {
           </form>
         )}
       </Formik>
+      <Toaster />
     </>
   );
 };

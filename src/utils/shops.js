@@ -1,7 +1,7 @@
 export const shops = [
   { href: "egersund", name: "Egersund" },
-  { href: "foodmarket", name: "Food Market" },
-  { href: "domino", name: "Domino" },
-  { href: "chelentano", name: "Chelentano" },
-  { href: "mafia", name: "Mafia" },
+  { href: "dessertsstore", name: "Desserts Store" },
+  { href: "veganstore", name: "Vegan Store" },
+  { href: "chickenstore", name: "Chicken Store" },
+  { href: "comingsoon", name: "..." },
 ];
