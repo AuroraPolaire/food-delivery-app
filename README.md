@@ -1,13 +1,12 @@
 NB!
 
+# Test App 'Food Delivery'
+
 - Rapid API (TheMealDB) is used to fetch products.
 - Sent data is stored in mockapi.io app and is shown in console.
 - Form has validation.
-
-# Test App 'Food Delivery'
-
-- App has routing : Shops page and shopping cart page.
-- You can choose a shop to order food.
+- App has routing : shops page and shopping cart page.
+- You can choose a shop to order food. Having chosen one - other shops are disabled.
 - You can add items to your cart, edit the amount and see the total sum.
 - You can send your order.
 

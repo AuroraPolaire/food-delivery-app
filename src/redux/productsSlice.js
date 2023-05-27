@@ -12,6 +12,7 @@ import {
 const productsSlice = createSlice({
   name: "delivery",
   initialState: {
+    storeName: "",
     seafood: [],
     desserts: [],
     vegan: [],
@@ -19,16 +20,26 @@ const productsSlice = createSlice({
     cart: [],
     total: 0,
     order: [],
+    disableButton: false,
     loading: false,
     error: false,
   },
   reducers: {
+    addStoreName(state, { payload }) {
+      state.storeName = payload;
+    },
     addProduct(state, { payload }) {
       state.cart.push(payload);
+      state.disableButton = false;
     },
     removeProduct(state, { payload }) {
       const index = state.cart.findIndex((item) => item.idMeal === payload);
       state.cart.splice(index, 1);
+      state.storeName = "";
+      if (state.cart.length === 0) state.disableButton = true;
+    },
+    disableButton(state) {
+      state.disableButton = !state.disableButton;
     },
     changeAmount(state, { payload }) {
       const index = state.cart.findIndex(
@@ -112,7 +123,7 @@ const productsSlice = createSlice({
 const persistConfig = {
   key: "cart",
   storage,
-  whitelist: ["cart", "seafood", "desserts", "vegan", "chicken"],
+  whitelist: ["cart", "seafood", "desserts", "vegan", "chicken", "storeName"],
 };
 
 export const {
@@ -121,6 +132,8 @@ export const {
   changeAmount,
   calculateTotal,
   emptyCart,
+  addStoreName,
+  disableButton,
 } = productsSlice.actions;
 export const productsReducer = persistReducer(
   persistConfig,

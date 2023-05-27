@@ -7,8 +7,6 @@ import {
 } from "../redux/productsSelector";
 
 export const GetPath = (location) => {
-  console.log(location);
-
   const seafood = useSelector(selectSeafood);
   const desserts = useSelector(selectDesserts);
   const vegan = useSelector(selectVegan);
@@ -33,6 +31,5 @@ export const GetPath = (location) => {
       return;
   }
 
-  console.log(food);
   return { food };
 };

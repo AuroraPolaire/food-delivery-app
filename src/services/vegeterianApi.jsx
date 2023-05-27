@@ -12,6 +12,5 @@ const options = {
 
 export const getVegan = async () => {
   const { data } = await axios.request(options);
-  console.log(data);
   return data;
 };

@@ -8,15 +8,15 @@ export const validationSchema = yup.object().shape({
     .matches(/^([^0-9]*)$/, "No numbers allowed!")
     .min(2, "Too Short!")
     .max(50, "Too Long!")
-    .required("Required"),
+    .required("Name is required"),
   email: yup
     .string()
     .matches(emailRegex, "Invalid email address")
     .required("Email is required"),
-  phone: yup.number().min(9, "Too short!").required("Required"),
+  phone: yup.number().min(9, "Too short!").required("Phone is required"),
   address: yup
     .string()
     .min(2, "Too Short!")
     .max(50, "Too Long!")
-    .required("Required"),
+    .required("Address is required"),
 });

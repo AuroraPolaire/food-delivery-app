@@ -46,7 +46,6 @@ export const getVeganList = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const vegan = await getVegan();
-      console.log(vegan);
 
       return vegan;
     } catch (error) {
@@ -60,8 +59,6 @@ export const getChickenList = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const chicken = await getChicken();
-      console.log(chicken);
-
       return chicken;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

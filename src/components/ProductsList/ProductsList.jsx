@@ -9,7 +9,6 @@ const ProductsList = () => {
   const location = useLocation();
 
   const isLoading = useSelector(selectLoading);
-  console.log(isLoading);
 
   const { food } = GetPath(location.pathname);
 
@@ -19,7 +18,13 @@ const ProductsList = () => {
         ? null
         : food !== undefined &&
           food.map((product) => {
-            return <ProductCard key={product.idMeal} product={product} />;
+            return (
+              <ProductCard
+                key={product.idMeal}
+                product={product}
+                location={location}
+              />
+            );
           })}
     </>
   );

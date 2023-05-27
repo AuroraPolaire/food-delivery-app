@@ -1,20 +1,31 @@
 import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCart } from "../../redux/productsSelector";
-import { addProduct, removeProduct } from "../../redux/productsSlice";
+import {
+  addProduct,
+  addStoreName,
+  removeProduct,
+} from "../../redux/productsSlice";
 import { Tooltip } from "@chakra-ui/react";
 import { includesMeal } from "../../utils/checkMeal";
 import { faker } from "@faker-js/faker";
 import { StyledCard } from "./ProductCard.styled";
 
-const ProductCard = ({ product }) => {
-  const cartItems = useSelector(selectCart);
-
+const ProductCard = ({ product, location }) => {
   const dispatch = useDispatch();
+  const storeName = location.pathname.slice(6, location.pathname.length);
+
+  const cartItems = useSelector(selectCart);
 
   const price = useMemo(() => Number(faker.commerce.price()), []);
 
   const { strMealThumb, strMeal, idMeal } = product;
+
+  const multipleActions = (dispatch) => {
+    dispatch(addProduct({ ...product, price, amount: 1 }));
+    dispatch(addStoreName(storeName));
+  };
+
   return (
     <StyledCard>
       <img src={strMealThumb} alt={strMeal} />
@@ -40,9 +51,9 @@ const ProductCard = ({ product }) => {
         ) : (
           <button
             type="button"
-            onClick={(e) =>
-              dispatch(addProduct({ ...product, price, amount: 1 }))
-            }
+            onClick={(e) => {
+              multipleActions(dispatch);
+            }}
           >
             Add to Cart
           </button>

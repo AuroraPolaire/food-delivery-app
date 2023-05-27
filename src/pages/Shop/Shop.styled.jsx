@@ -29,4 +29,9 @@ export const ShopPageContainer = styled.div`
     border: 1px solid black;
     border-radius: 10px;
   }
+
+  & .disabled-button[disabled] {
+    background-color: gray;
+    cursor: default;
+  }
 `;
