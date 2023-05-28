@@ -53,11 +53,11 @@ const ShopsList = () => {
   return (
     <>
       {shops.map(({ href, name }) => {
-        const hideTooltip = disabled || storeName === href;
         return (
           <>
             <Tooltip
-              isDisabled={hideTooltip}
+              key={name}
+              isDisabled={disabled || storeName === href}
               label="You can order food only from one store at a time."
               fontSize="md"
               bg="white"

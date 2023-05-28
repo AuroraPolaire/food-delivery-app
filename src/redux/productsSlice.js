@@ -123,7 +123,15 @@ const productsSlice = createSlice({
 const persistConfig = {
   key: "cart",
   storage,
-  whitelist: ["cart", "seafood", "desserts", "vegan", "chicken", "storeName"],
+  whitelist: [
+    "cart",
+    "seafood",
+    "desserts",
+    "vegan",
+    "chicken",
+    "storeName",
+    "disableButton",
+  ],
 };
 
 export const {
