@@ -35,7 +35,7 @@ const productsSlice = createSlice({
     removeProduct(state, { payload }) {
       const index = state.cart.findIndex((item) => item.idMeal === payload);
       state.cart.splice(index, 1);
-      state.storeName = "";
+      if (state.cart.length === 0) state.storeName = "";
       if (state.cart.length === 0) state.disableButton = true;
     },
     disableButton(state) {

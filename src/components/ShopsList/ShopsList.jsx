@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   fetchSeafood,
   getChickenList,
@@ -23,6 +23,7 @@ import { Tooltip } from "@chakra-ui/react";
 const ShopsList = () => {
   const location = useLocation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const seafood = useSelector(selectSeafood);
   const desserts = useSelector(selectDesserts);
@@ -54,35 +55,34 @@ const ShopsList = () => {
     <>
       {shops.map(({ href, name }) => {
         return (
-          <>
-            <Tooltip
-              key={name}
-              isDisabled={disabled || storeName === href}
-              label="You can order food only from one store at a time."
-              fontSize="md"
-              bg="white"
-              aria-label="A tooltip"
-            >
-              <ShopButton
-                onClick={(e) => {
-                  if (storeName !== href && cart.length !== 0) {
-                    e.preventDefault();
-                  }
-                }}
-                disabled={storeName !== href && cart.length !== 0}
-                to={href}
-                key={name}
-                className={!disabled ? "disabled-button" : "active-button"}
-                style={({ isActive }) =>
-                  isActive
-                    ? { fontWeight: "bold", backgroundColor: "#219ebc" }
-                    : {}
+          <Tooltip
+            key={name}
+            isDisabled={disabled || storeName === href}
+            label="You can order food only from one store at a time."
+            fontSize="md"
+            bg="white"
+            aria-label="A tooltip"
+          >
+            <ShopButton
+              onClick={(e) => {
+                if (storeName !== href && cart.length !== 0) {
+                  e.preventDefault();
                 }
-              >
-                {name}
-              </ShopButton>
-            </Tooltip>
-          </>
+                if (cart.length !== 0) navigate(`/shop/${storeName}`);
+              }}
+              disabled={storeName !== href && cart.length !== 0}
+              to={href}
+              key={name}
+              className={!disabled ? "disabled-button" : "active-button"}
+              style={({ isActive }) =>
+                isActive
+                  ? { fontWeight: "bold", backgroundColor: "#219ebc" }
+                  : {}
+              }
+            >
+              {name}
+            </ShopButton>
+          </Tooltip>
         );
       })}
     </>
