@@ -71,7 +71,9 @@ const ShoppingCart = () => {
               <div>
                 Total price: <span className="price">{total} &euro;</span>
               </div>
-              <button type="submit">Submit</button>
+              <button disabled={cartItems.length === 0} type="submit">
+                Submit
+              </button>
             </StyledTotal>
           </form>
         )}
