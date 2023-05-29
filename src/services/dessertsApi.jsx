@@ -5,7 +5,7 @@ const options = {
   url: "https://themealdb.p.rapidapi.com/filter.php",
   params: { c: "Dessert" },
   headers: {
-    "X-RapidAPI-Key": "58b7946497msh98e1a21733f1db5p1c2442jsnf3843f2dd6c8",
+    "X-RapidAPI-Key": process.env.REACT_APP_RapidAPI_Key,
     "X-RapidAPI-Host": "themealdb.p.rapidapi.com",
   },
 };
