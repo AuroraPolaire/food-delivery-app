@@ -12,17 +12,15 @@ const OrderCard = () => {
         <div className="container">
           {order.map(({ amount, price, strMeal, strMealThumb, idMeal }) => {
             return (
-              <>
-                <StyledOrderCard key={idMeal}>
-                  <img src={strMealThumb} alt={strMeal} />
-                  <div>
-                    <p>{strMeal}</p>
-                    <p className="price">
-                      {amount} x {price} &euro;
-                    </p>
-                  </div>
-                </StyledOrderCard>
-              </>
+              <StyledOrderCard key={idMeal}>
+                <img src={strMealThumb} alt={strMeal} />
+                <div>
+                  <p>{strMeal}</p>
+                  <p className="price">
+                    {amount} x {price} &euro;
+                  </p>
+                </div>
+              </StyledOrderCard>
             );
           })}
         </div>

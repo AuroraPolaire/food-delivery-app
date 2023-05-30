@@ -3,7 +3,11 @@ import CartItemList from "../../components/CartItemsList/CartItemList";
 import UserInfo from "../../components/UserInfo/UserInfo";
 import { Formik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCart, selectTotal } from "../../redux/productsSelector";
+import {
+  selectCart,
+  selectId,
+  selectTotal,
+} from "../../redux/productsSelector";
 import { calculateTotal, emptyCart } from "../../redux/productsSlice";
 import { StyledCartBox, StyledTotal } from "./ShoppingCart.styled";
 import { validationSchema } from "../../utils/validation";
@@ -14,6 +18,7 @@ const ShoppingCart = () => {
   const dispatch = useDispatch();
 
   const cartItems = useSelector(selectCart);
+  const id = useSelector(selectId);
   const total = useSelector(selectTotal);
   // eslint-disable-next-line
   const [cart, setCart] = useState(cartItems);
@@ -54,10 +59,13 @@ const ShoppingCart = () => {
           console.log(values, total, cartItems);
           dispatch(emptyCart());
           formik.resetForm();
-          toast.success("Order successfully sent!", {
-            duration: 4000,
-            position: "top-right",
-          });
+          toast.success(
+            `Order successfully sent! Your order number is ${id}. You can check it on History page`,
+            {
+              duration: 8000,
+              position: "top-right",
+            }
+          );
         }}
       >
         {(formik) => (

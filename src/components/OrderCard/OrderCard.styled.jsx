@@ -2,8 +2,11 @@ import styled from "styled-components";
 
 export const StyledOrderContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 10px 20px;
 
   & .container {
     gap: 5px;
