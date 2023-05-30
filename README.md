@@ -1,14 +1,13 @@
-NB!
-
 # Test App 'Food Delivery'
 
 - Rapid API (TheMealDB) is used to fetch products.
 - Sent data is stored in mockapi.io app and is shown in console.
 - Form has validation.
-- App has routing : shops page and shopping cart page.
+- App has routing : shops page, shopping cart page and history page.
 - You can choose a shop to order food. Having chosen one - other shops are disabled.
 - You can add items to your cart, edit the amount and see the total sum.
 - You can send your order.
+- You can review the order that you've sent on the History page.
 
 ## Demo
 
@@ -19,6 +18,7 @@ https://aurorapolaire.github.io/food-delivery-app/shop
 
 ![Shops page](https://i.ibb.co/crCtqvz/food-delivery.png)
 ![Tweet Page](https://i.ibb.co/qBsfSVP/food-delivery2.jpg)
+![History Page](https://i.ibb.co/9bWFryf/image.png)
 
 ## Features
 
