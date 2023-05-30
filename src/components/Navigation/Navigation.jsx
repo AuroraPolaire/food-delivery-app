@@ -31,6 +31,16 @@ const Navigation = () => {
           >
             Shopping Cart
           </StyledLink>
+          <StyledLink
+            to="/history"
+            style={({ isActive }) =>
+              isActive
+                ? { borderBottom: "2px solid black", fontWeight: "bold" }
+                : {}
+            }
+          >
+            History
+          </StyledLink>
         </GlobalContainer>
       </StyledHeader>
     </>

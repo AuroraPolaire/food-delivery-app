@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import ProductsList from "./components/ProductsList/ProductsList";
 import SharedLayout from "./components/SharedLayout/SharedLayout";
+import History from "./pages/History/History";
 import Shop from "./pages/Shop/Shop";
 import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
 
@@ -28,6 +29,7 @@ function App() {
           />
         </Route>
         <Route path="/shoppingCart" element={<ShoppingCart />} />
+        <Route path="/history" element={<History />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>

@@ -5,6 +5,7 @@ import {
   fetchSeafood,
   getChickenList,
   getDessertsList,
+  getUserOrder,
   getVeganList,
   sendUserOrder,
 } from "./productsOperations";
@@ -19,7 +20,7 @@ const productsSlice = createSlice({
     chicken: [],
     cart: [],
     total: 0,
-    order: [],
+    order: {},
     disableButton: false,
     loading: false,
     error: false,
@@ -112,9 +113,21 @@ const productsSlice = createSlice({
       })
       .addCase(sendUserOrder.fulfilled, (state, { payload }) => {
         state.loading = false;
-        state.order.push(payload);
+        // state.order.push(payload);
       })
       .addCase(sendUserOrder.rejected, (state) => {
+        state.error = true;
+        state.loading = false;
+      })
+      .addCase(getUserOrder.pending, (state) => {
+        state.error = false;
+        state.loading = true;
+      })
+      .addCase(getUserOrder.fulfilled, (state, { payload }) => {
+        state.loading = false;
+        state.order = payload;
+      })
+      .addCase(getUserOrder.rejected, (state) => {
         state.error = true;
         state.loading = false;
       }),

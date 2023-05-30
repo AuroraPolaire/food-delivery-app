@@ -10,22 +10,36 @@ export const StyledHeader = styled.header`
 `;
 
 export const StyledLink = styled(NavLink)`
-  font-size: 22px;
-
+  font-size: 16px;
   color: var(--font-color);
   position: relative;
 
-  &:first-child {
-    margin-right: 70px;
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
   }
 
-  &:first-child::after {
+  @media screen and (min-width: 1024px) {
+    font-size: 22px;
+  }
+
+  &:not(-last-child) {
+    margin-right: 30px;
+    @media screen and (min-width: 768px) {
+      margin-right: 60px;
+    }
+  }
+
+  &:nth-child(-n + 2)::after {
     content: "";
     position: absolute;
     top: -10px;
-    right: -70%;
+    right: -15px;
     height: 40px;
     width: 2px;
     background-color: var(--font-color);
+
+    @media screen and (min-width: 768px) {
+      right: -35px;
+    }
   }
 `;

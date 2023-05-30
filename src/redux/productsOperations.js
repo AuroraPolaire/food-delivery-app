@@ -2,8 +2,9 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { getChicken } from "../services/chickenApi";
 import { getDessert } from "../services/dessertsApi";
 import { getSeafood } from "../services/seafoodApi";
-import { sendOrder } from "../services/sendOrderApi";
+import { getOrder } from "../services/getOrderApi";
 import { getVegan } from "../services/vegeterianApi";
+import { sendOrder } from "../services/sendOrderApi";
 
 export const fetchSeafood = createAsyncThunk(
   "getSeafood",
@@ -11,18 +12,6 @@ export const fetchSeafood = createAsyncThunk(
     try {
       const seafood = await getSeafood();
       return seafood;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-export const sendUserOrder = createAsyncThunk(
-  "post",
-  async (data, thunkAPI) => {
-    try {
-      const order = await sendOrder(data);
-      return order;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -65,3 +54,24 @@ export const getChickenList = createAsyncThunk(
     }
   }
 );
+
+export const sendUserOrder = createAsyncThunk(
+  "post",
+  async (data, thunkAPI) => {
+    try {
+      const order = await sendOrder(data);
+      return order;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getUserOrder = createAsyncThunk("get", async (id, thunkAPI) => {
+  try {
+    const order = await getOrder(id);
+    return order;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
