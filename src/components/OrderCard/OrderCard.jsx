@@ -14,7 +14,7 @@ const OrderCard = () => {
             return (
               <StyledOrderCard key={idMeal}>
                 <img src={strMealThumb} alt={strMeal} />
-                <div>
+                <div className="cart-item-data">
                   <p>{strMeal}</p>
                   <p className="price">
                     {amount} x {price} &euro;
