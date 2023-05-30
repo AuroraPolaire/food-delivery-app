@@ -34,16 +34,23 @@ const ShoppingCart = () => {
         }}
         validationSchema={validationSchema}
         onSubmit={(values, formik) => {
-          let formData = new FormData();
-          Object.keys(values).forEach((key) => {
-            formData.append(key, values[key]);
-            console.log(key, values[key]);
-          });
+          dispatch(
+            sendUserOrder({
+              ...values,
+              total: total,
+              order: cartItems,
+            })
+          );
+          //sending with FormData
+          // let formData = new FormData();
+          // Object.keys(values).forEach((key) => {
+          //   formData.append(key, values[key]);
+          // });
+          // formData.append("total", total);
+          // formData.append("order", JSON.stringify(cartItems));
 
-          formData.append("total", total);
-          formData.append("order", JSON.stringify(cartItems));
+          // dispatch(sendUserOrder(formData));
 
-          dispatch(sendUserOrder(values));
           console.log(values, total, cartItems);
           dispatch(emptyCart());
           formik.resetForm();
