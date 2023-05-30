@@ -48,26 +48,31 @@ export const StyledOrderContainer = styled.div`
 `;
 
 export const StyledOrderCard = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: left;
+  flex-direction: column;
   padding: 10px 20px;
   border-radius: 10px;
   border: 1px solid black;
   transition: all var(--transition-dur-and-func);
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  flex-direction: column;
 
   @media screen and (min-width: 768px) {
-    width: 50%;
     display: flex;
+    gap: 10px;
     flex-direction: row;
+    width: 50%;
     align-items: center;
     justify-content: left;
-    gap: 20px;
   }
 
   @media screen and (min-width: 1024px) {
     width: 47%;
+    /* gap: 10px; */
+  }
+  @media screen and (min-width: 1240px) {
+    /* width: 45%; */
   }
 
   &:hover {
