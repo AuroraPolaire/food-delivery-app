@@ -6,6 +6,12 @@ export const HistoryContainer = styled.div`
   justify-content: center;
   gap: 20px;
 
+  & h1 {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 25px;
+  }
+
   & button {
     margin: 0 auto;
     width: fit-content;

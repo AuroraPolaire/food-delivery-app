@@ -9,13 +9,14 @@ export const StyledOrderContainer = styled.div`
     gap: 5px;
     display: flex;
     flex-wrap: wrap;
-    flex-basis: calc((100% - 3 * 5) / 2);
+    max-width: 80%;
   }
 
   & .total {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+    min-width: 20%;
   }
 `;
 

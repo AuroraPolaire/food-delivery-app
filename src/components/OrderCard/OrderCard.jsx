@@ -18,7 +18,7 @@ const OrderCard = () => {
                   <div>
                     <p>{strMeal}</p>
                     <p className="price">
-                      {amount} x {price}
+                      {amount} x {price} &euro;
                     </p>
                   </div>
                 </StyledOrderCard>
@@ -26,7 +26,7 @@ const OrderCard = () => {
             );
           })}
         </div>
-        <div className="total">Total price: {total}</div>
+        <div className="total">Total price: {total} &euro;</div>
       </StyledOrderContainer>
     </>
   );
