@@ -6,6 +6,8 @@ import { StyledOrderCard, StyledOrderContainer } from "./OrderCard.styled";
 const OrderCard = () => {
   const userOrder = useSelector(selectOrder);
   const { total, order } = userOrder;
+
+  if (order === undefined) return;
   return (
     <>
       <StyledOrderContainer>

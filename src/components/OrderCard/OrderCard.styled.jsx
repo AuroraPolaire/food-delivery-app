@@ -14,9 +14,10 @@ export const StyledOrderContainer = styled.div`
   & .container {
     gap: 5px;
     justify-content: flex-start;
+    flex-grow: 1;
 
     @media screen and (min-width: 768px) {
-      gap: 0;
+      gap: 0px;
       display: flex;
       flex-wrap: wrap;
       max-width: 80%;
@@ -24,10 +25,6 @@ export const StyledOrderContainer = styled.div`
 
     @media screen and (min-width: 1024px) {
       gap: 10px;
-    }
-
-    @media screen and (min-width: 1240px) {
-      /* max-width: 90%; */
     }
   }
 
