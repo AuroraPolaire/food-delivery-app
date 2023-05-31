@@ -3,12 +3,17 @@ import { DeleteIcon } from "@chakra-ui/icons";
 
 export const CartBox = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 15px;
   padding: 10px 20px;
   border-radius: 10px;
   border: 1px solid black;
   transition: all var(--transition-dur-and-func);
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 
   &:hover {
     box-shadow: 0 1px 8px 2px rgba(0, 0, 0, 0.245);
