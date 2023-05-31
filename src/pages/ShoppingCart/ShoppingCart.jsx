@@ -12,6 +12,7 @@ import { calculateTotal, emptyCart } from "../../redux/productsSlice";
 import { StyledCartBox, StyledTotal } from "./ShoppingCart.styled";
 import { validationSchema } from "../../utils/validation";
 import { sendUserOrder } from "../../redux/productsOperations";
+import { Helmet } from "react-helmet";
 import toast, { Toaster } from "react-hot-toast";
 
 const ShoppingCart = () => {
@@ -30,6 +31,9 @@ const ShoppingCart = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Shopping cart</title>
+      </Helmet>
       <Formik
         initialValues={{
           name: "",
@@ -46,17 +50,9 @@ const ShoppingCart = () => {
               order: cartItems,
             })
           );
-          //sending with FormData
-          // let formData = new FormData();
-          // Object.keys(values).forEach((key) => {
-          //   formData.append(key, values[key]);
-          // });
-          // formData.append("total", total);
-          // formData.append("order", JSON.stringify(cartItems));
-
-          // dispatch(sendUserOrder(formData));
 
           console.log(values, total, cartItems);
+
           dispatch(emptyCart());
           formik.resetForm();
           toast.success(
