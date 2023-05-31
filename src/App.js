@@ -1,11 +1,13 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import { lazy } from "react";
 
 import "./App.css";
 import ProductsList from "./components/ProductsList/ProductsList";
 import SharedLayout from "./components/SharedLayout/SharedLayout";
-import History from "./pages/History/History";
-import Shop from "./pages/Shop/Shop";
-import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
+
+const History = lazy(() => import("./pages/History/History"));
+const Shop = lazy(() => import("./pages/Shop/Shop"));
+const ShoppingCart = lazy(() => import("./pages/ShoppingCart/ShoppingCart"));
 
 const alert = "Coming soon... ";
 
