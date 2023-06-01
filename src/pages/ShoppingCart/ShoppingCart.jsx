@@ -12,7 +12,7 @@ import { calculateTotal, emptyCart } from "../../redux/productsSlice";
 import { StyledCartBox, StyledTotal } from "./ShoppingCart.styled";
 import { validationSchema } from "../../utils/validation";
 import { sendUserOrder } from "../../redux/productsOperations";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import toast, { Toaster } from "react-hot-toast";
 
 const ShoppingCart = () => {
@@ -31,65 +31,71 @@ const ShoppingCart = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Shopping cart</title>
-      </Helmet>
-      <Formik
-        initialValues={{
-          name: "",
-          email: "",
-          phone: "",
-          address: "",
-        }}
-        validationSchema={validationSchema}
-        onSubmit={(values, formik) => {
-          dispatch(
-            sendUserOrder({
-              ...values,
-              total: total,
-              order: cartItems,
-            })
-          );
+      <HelmetProvider>
+        <Helmet>
+          <title>Shopping cart</title>
+        </Helmet>
+        <Formik
+          initialValues={{
+            name: "",
+            email: "",
+            phone: "",
+            address: "",
+          }}
+          validationSchema={validationSchema}
+          onSubmit={(values, formik) => {
+            dispatch(
+              sendUserOrder({
+                ...values,
+                total: total,
+                order: cartItems,
+              })
+            );
 
-          console.log(values, total, cartItems);
+            console.log(values, total, cartItems);
 
-          dispatch(emptyCart());
-          formik.resetForm();
-          toast.success(
-            `Order successfully sent! Your order number is ${id}. You can check it on History page`,
-            {
-              duration: 8000,
-              position: "top-right",
-            }
-          );
-        }}
-      >
-        {(formik) => (
-          <form onSubmit={formik.handleSubmit}>
-            <StyledCartBox>
-              <div className="form-box">
-                <UserInfo formik={formik} />
-              </div>
-              <div className="cart-box">
-                {cartItems.length === 0 ? (
-                  <div className="empty">The cart is empty.</div>
-                ) : (
-                  <CartItemList formik={formik} type="number" label="amount" />
-                )}
-              </div>
-            </StyledCartBox>
-            <StyledTotal>
-              <div>
-                Total price: <span className="price">{total} &euro;</span>
-              </div>
-              <button disabled={cartItems.length === 0} type="submit">
-                Submit
-              </button>
-            </StyledTotal>
-          </form>
-        )}
-      </Formik>
-      <Toaster />
+            dispatch(emptyCart());
+            formik.resetForm();
+            toast.success(
+              `Order successfully sent! Your order number is ${id}. You can check it on History page`,
+              {
+                duration: 8000,
+                position: "top-right",
+              }
+            );
+          }}
+        >
+          {(formik) => (
+            <form onSubmit={formik.handleSubmit}>
+              <StyledCartBox>
+                <div className="form-box">
+                  <UserInfo formik={formik} />
+                </div>
+                <div className="cart-box">
+                  {cartItems.length === 0 ? (
+                    <div className="empty">The cart is empty.</div>
+                  ) : (
+                    <CartItemList
+                      formik={formik}
+                      type="number"
+                      label="amount"
+                    />
+                  )}
+                </div>
+              </StyledCartBox>
+              <StyledTotal>
+                <div>
+                  Total price: <span className="price">{total} &euro;</span>
+                </div>
+                <button disabled={cartItems.length === 0} type="submit">
+                  Submit
+                </button>
+              </StyledTotal>
+            </form>
+          )}
+        </Formik>
+        <Toaster />
+      </HelmetProvider>
     </>
   );
 };
