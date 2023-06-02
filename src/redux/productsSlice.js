@@ -32,7 +32,6 @@ const productsSlice = createSlice({
     cart: [],
     total: 0,
     order: {},
-    id: "",
     disableButton: false,
     loading: false,
     error: false,
@@ -89,7 +88,7 @@ const productsSlice = createSlice({
       })
       .addCase(sendUserOrder.fulfilled, (state, { payload }) => {
         state.loading = false;
-        state.id = payload.id;
+        state.order = payload;
       })
       .addCase(getUserOrder.fulfilled, (state, { payload }) => {
         state.loading = false;
