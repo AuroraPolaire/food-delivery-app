@@ -32,3 +32,4 @@ https://aurorapolaire.github.io/food-delivery-app/shop
 8. Styled-components.
 9. Formik
 10. Yup.
+11. React-spinners.
