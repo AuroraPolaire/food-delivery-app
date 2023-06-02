@@ -27,6 +27,7 @@ const CartItemList = ({ formik }) => {
               <p>
                 Price: <span className="price">{price} &euro; </span>
               </p>
+              {/* <button onClick={addAmount}>-</button> */}
               <Field
                 name="amount"
                 type="number"
@@ -40,6 +41,7 @@ const CartItemList = ({ formik }) => {
                   dispatch(changeAmount({ idMeal, value }));
                 }}
               />
+              {/* <button onClick={decreseAmount}>+</button> */}
             </div>
           </CartBox>
         );

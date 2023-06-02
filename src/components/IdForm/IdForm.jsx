@@ -1,10 +1,15 @@
 import React from "react";
 import { Formik } from "formik";
-import { StyledInput, StyledLabel } from "../UserInfo/UserInfo.styled";
+import {
+  StyledInput,
+  StyledLabel,
+  Validation,
+} from "../UserInfo/UserInfo.styled";
 import { StyledIdFormBox } from "./IdForm.styled";
 import { useDispatch } from "react-redux";
 import { getUserOrder } from "../../redux/productsOperations";
 import toast, { Toaster } from "react-hot-toast";
+import { validationIdSchema } from "../../utils/validation";
 
 const IdForm = () => {
   const dispatch = useDispatch();
@@ -14,7 +19,7 @@ const IdForm = () => {
         initialValues={{
           id: "",
         }}
-        // validationSchema={validationSchema}
+        validationSchema={validationIdSchema}
         onSubmit={(values, formik) => {
           dispatch(getUserOrder(values.id))
             .unwrap()
@@ -35,9 +40,9 @@ const IdForm = () => {
               <div className="form-box">
                 <div className="form-container">
                   <StyledLabel htmlFor="id"> Order:</StyledLabel>
-                  {/* {formik.errors.name && formik.touched.name ? (
-                    <Validation>{formik.errors.name}</Validation>
-                  ) : null} */}
+                  {formik.errors.id && formik.touched.id ? (
+                    <Validation>{formik.errors.id}</Validation>
+                  ) : null}
                   <StyledInput
                     id="id"
                     name="id"

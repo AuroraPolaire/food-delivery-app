@@ -20,5 +20,5 @@ export const Validation = styled.div`
   color: red;
   position: absolute;
   top: 8px;
-  right: 70px;
+  right: 75px;
 `;

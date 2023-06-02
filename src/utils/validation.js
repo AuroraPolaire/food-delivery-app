@@ -20,3 +20,11 @@ export const validationSchema = yup.object().shape({
     .max(50, "Too Long!")
     .required("Address is required"),
 });
+
+export const validationIdSchema = yup.object().shape({
+  id: yup
+    .number()
+    .typeError("Please enter a valid number")
+    .min(1, "Order number must be higher then 0")
+    .required("Order number is required"),
+});
