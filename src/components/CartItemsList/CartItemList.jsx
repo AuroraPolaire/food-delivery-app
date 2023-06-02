@@ -4,6 +4,7 @@ import { selectCart } from "../../redux/productsSelector";
 import { changeAmount, removeProduct } from "../../redux/productsSlice";
 import { CartBox, StyledIcon } from "./CartItemList.styled";
 import { DeleteIcon } from "@chakra-ui/icons";
+import { Field } from "formik";
 
 const CartItemList = ({ formik }) => {
   const cartItems = useSelector(selectCart);
@@ -26,15 +27,17 @@ const CartItemList = ({ formik }) => {
               <p>
                 Price: <span className="price">{price} &euro; </span>
               </p>
-              <input
+              <Field
                 name="amount"
                 type="number"
                 min={1}
+                max={20}
+                pattern="[1-9]{1}"
                 defaultValue={amount}
+                required
                 onChange={(e) => {
                   const value = e.target.value;
                   dispatch(changeAmount({ idMeal, value }));
-                  formik.handleChange(e);
                 }}
               />
             </div>
