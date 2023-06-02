@@ -6,7 +6,7 @@ import {
   selectVegan,
 } from "../redux/productsSelector";
 
-export const GetPath = (location) => {
+export const useProducts = (location) => {
   const seafood = useSelector(selectSeafood);
   const desserts = useSelector(selectDesserts);
   const vegan = useSelector(selectVegan);
