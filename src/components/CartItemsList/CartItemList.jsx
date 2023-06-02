@@ -4,11 +4,20 @@ import { selectCart } from "../../redux/productsSelector";
 import { changeAmount, removeProduct } from "../../redux/productsSlice";
 import { CartBox, StyledIcon } from "./CartItemList.styled";
 import { DeleteIcon } from "@chakra-ui/icons";
-import { Field } from "formik";
+import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 
 const CartItemList = ({ formik }) => {
   const cartItems = useSelector(selectCart);
   const dispatch = useDispatch();
+
+  const increaseAmount = (id, amount) => {
+    dispatch(changeAmount({ id, amount: ++amount }));
+  };
+
+  const decreaseAmount = (id, amount) => {
+    dispatch(changeAmount({ id, amount: --amount }));
+  };
+
   return (
     <>
       {cartItems.map(({ strMealThumb, strMeal, price, idMeal, amount }) => {
@@ -27,21 +36,25 @@ const CartItemList = ({ formik }) => {
               <p>
                 Price: <span className="price">{price} &euro; </span>
               </p>
-              {/* <button onClick={addAmount}>-</button> */}
-              <Field
-                name="amount"
-                type="number"
-                min={1}
-                max={20}
-                pattern="[1-9]{1}"
-                defaultValue={amount}
-                required
-                onChange={(e) => {
-                  const value = e.target.value;
-                  dispatch(changeAmount({ idMeal, value }));
-                }}
-              />
-              {/* <button onClick={decreseAmount}>+</button> */}
+              <div className="amount-container">
+                <button
+                  type="button"
+                  className="amount-button"
+                  onClick={() => decreaseAmount(idMeal, amount)}
+                  disabled={amount <= 1}
+                >
+                  <MinusIcon />
+                </button>
+                <div className="amount-input"> {amount} </div>
+                <button
+                  type="button"
+                  className="amount-button"
+                  onClick={() => increaseAmount(idMeal, amount)}
+                  disabled={amount >= 15}
+                >
+                  <AddIcon />
+                </button>
+              </div>
             </div>
           </CartBox>
         );

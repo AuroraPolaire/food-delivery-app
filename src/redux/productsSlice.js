@@ -54,10 +54,12 @@ const productsSlice = createSlice({
       state.disableButton = !state.disableButton;
     },
     changeAmount(state, { payload }) {
-      const index = state.cart.findIndex(
-        (item) => item.idMeal === payload.idMeal
-      );
-      state.cart[index].amount = Number(payload.value);
+      const index = state.cart.findIndex((item) => item.idMeal === payload.id);
+      state.cart[index].amount = payload.amount;
+
+      // state.cart = state.cart.map((item) =>
+      //   item.idMeal === payload.id ? { ...item, amount: payload.amount } : item
+      // );
     },
     calculateTotal(state) {
       state.total = state.cart.reduce((acc, item) => {

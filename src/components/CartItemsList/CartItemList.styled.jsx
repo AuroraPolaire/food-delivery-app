@@ -40,13 +40,28 @@ export const CartBox = styled.div`
   & .price {
     font-weight: bold;
   }
+  & .amount-container {
+    display: flex;
+    justify-content: center;
+  }
 
-  & input {
-    padding: 8px;
+  & .amount-input {
+    padding: 10px;
     border-radius: 5px;
-    height: 35px;
-    width: 50%;
+    width: 50px;
     border: 1px solid black;
+    text-align: center;
+  }
+
+  & .amount-button {
+    border: 0px;
+    background-color: transparent;
+    transition: all var(--transition-dur-and-func);
+
+    &:hover {
+      transform: scale(1.2);
+      color: var(--accent-color-orange);
+    }
   }
 `;
 
