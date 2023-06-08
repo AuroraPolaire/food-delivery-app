@@ -26,5 +26,5 @@ export const validationIdSchema = yup.object().shape({
     .number()
     .typeError("Please enter a valid number")
     .min(1, "Order number must be higher then 0")
-    .required("Order number is required"),
+    .required("Number is required"),
 });

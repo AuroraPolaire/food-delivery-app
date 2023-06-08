@@ -19,6 +19,6 @@ export const StyledInput = styled(Field)`
 export const Validation = styled.div`
   color: red;
   position: absolute;
-  top: 8px;
+  top: -25px;
   right: 75px;
 `;
