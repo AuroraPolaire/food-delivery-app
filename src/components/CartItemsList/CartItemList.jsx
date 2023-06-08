@@ -25,8 +25,8 @@ const CartItemList = ({ formik }) => {
           <CartBox key={idMeal}>
             <DeleteIcon
               as={StyledIcon}
-              w={20}
-              h={20}
+              w={8}
+              h={8}
               onClick={(e) => dispatch(removeProduct(idMeal))}
             />
 

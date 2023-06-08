@@ -36,9 +36,15 @@ const ProductCard = ({ product, location }) => {
 
       <Tooltip
         label="You can add or remove item"
-        fontSize="md"
+        fontSize="sm"
         bg="white"
         aria-label="A tooltip"
+        color="black"
+        border="1px solid gray"
+        borderRadius="md"
+        hasArrow
+        arrowSize={8}
+        arrowShadowColor="gray"
       >
         {includesMeal(idMeal, cartItems) ? (
           <button

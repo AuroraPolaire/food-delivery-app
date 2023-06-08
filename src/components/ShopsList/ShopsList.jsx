@@ -58,10 +58,16 @@ const ShopsList = () => {
           <Tooltip
             key={name}
             isDisabled={disabled || storeName === href}
-            label="You can order food only from one store at a time."
-            fontSize="md"
+            label="You can order food only from one store at a time. To choose another store you have to delete items from the cart."
+            fontSize="sm"
             bg="white"
             aria-label="A tooltip"
+            color="black"
+            border="1px solid gray"
+            borderRadius="md"
+            hasArrow
+            arrowSize={8}
+            arrowShadowColor="gray"
           >
             <ShopButton
               onClick={(e) => {

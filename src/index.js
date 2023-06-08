@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
@@ -14,8 +15,10 @@ root.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter basename="/food-delivery-app">
-          <GlobalStyles />
-          <App />
+          <ChakraProvider>
+            <GlobalStyles />
+            <App />
+          </ChakraProvider>
         </BrowserRouter>
       </PersistGate>
     </Provider>

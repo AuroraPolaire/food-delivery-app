@@ -54,6 +54,7 @@ export const CartBox = styled.div`
   }
 
   & .amount-button {
+    margin: 0 7px;
     border: 0px;
     background-color: transparent;
     transition: all var(--transition-dur-and-func);
@@ -67,6 +68,8 @@ export const CartBox = styled.div`
 
 export const StyledIcon = styled(DeleteIcon)`
   cursor: pointer;
+  transition: all var(--transition-dur-and-func);
+
   &:hover {
     color: red;
   }
